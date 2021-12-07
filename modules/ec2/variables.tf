@@ -19,3 +19,11 @@ variable "vpc_security_group" {
 variable "subnet_id" {
     default = ""
 }
+
+variable "user_data" {
+    default = null
+}
+
+variable "instance_profile" {
+    default = null
+}

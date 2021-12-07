@@ -4,9 +4,9 @@ resource "aws_instance" "web" {
   subnet_id                   = var.subnet_id
   associate_public_ip_address = true            
 
-  user_data = file("../../files/userdata.sh")
+  user_data = var.user_data
 
-  #iam_instance_profile = aws_iam_instance_profile.s3_profile.id
+  iam_instance_profile = var.instance_profile
   ebs_optimized        = var.ebs_optimized
 
   key_name      = var.key_name
@@ -16,6 +16,6 @@ resource "aws_instance" "web" {
   vpc_security_group_ids = var.vpc_security_group
     
   tags = {
-    Environment = var.environment
+    Name = "SampleApp"    
   }
 }
