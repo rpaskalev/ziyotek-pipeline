@@ -1,3 +1,6 @@
+
+
+
 resource "aws_iam_role" "code_build" {
   name = "code_build_role"
 
@@ -17,9 +20,10 @@ resource "aws_iam_role" "code_build" {
 EOF
 }
 
-resource "aws_iam_policy" "codebuild_policy" {
+resource "aws_iam_policy" "example" {
+  #role = aws_iam_role.code_build.name
   name = "build-policy"
- 
+
   policy = <<POLICY
 {
   "Version": "2012-10-17",
@@ -89,23 +93,23 @@ resource "aws_iam_policy" "codebuild_policy" {
 POLICY
 }
 
-resource "aws_iam_role_policy_attachment" "build_attach" {
+resource "aws_iam_role_policy_attachment" "build-attach" {
   role       = aws_iam_role.code_build.name
-  policy_arn = aws_iam_policy.codebuild_policy.arn
+  policy_arn = aws_iam_policy.example.arn
 }
 
-resource "aws_codebuild_project" "ziyotek_p" {
-  name          = "ziyotek-project"
-  service_role  = aws_iam_role.code_build.arn
+resource "aws_codebuild_project" "example" {
+  name         = "codebuild-project"
+  service_role = aws_iam_role.code_build.arn
 
   artifacts {
     type = "CODEPIPELINE"
   }
 
   environment {
-    compute_type                = "BUILD_GENERAL1_SMALL"
-    image                       = "aws/codebuild/amazonlinux2-x86_64-standard:1.0"
-    type                        = "LINUX_CONTAINER"
+    compute_type = "BUILD_GENERAL1_SMALL"
+    image        = "aws/codebuild/amazonlinux2-x86_64-standard:1.0"
+    type         = "LINUX_CONTAINER"
 
     environment_variable {
       name  = "S3_BUCKET"
@@ -114,7 +118,7 @@ resource "aws_codebuild_project" "ziyotek_p" {
   }
 
   source {
-    type            = "CODEPIPELINE"
-    location        = "buildspec.yml"
+    type      = "CODEPIPELINE"
+    buildspec = "buildspec.yml"
   }
 }

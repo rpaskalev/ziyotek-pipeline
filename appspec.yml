@@ -3,8 +3,8 @@ os: linux
 files:
   - source: /index.html
     destination: /var/www/html/
-Hooks:
-  BeforeInstall: 
+hooks:
+  BeforeInstall:
     - location: scripts/install_dependencies
       timeout: 300
       runas: root
@@ -15,6 +15,4 @@ Hooks:
     - location: scripts/stop_server
       timeout: 300
       runas: root
-    
-
 
