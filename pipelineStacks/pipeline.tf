@@ -14,7 +14,7 @@ variable "GitHubOwner" {
 }
 
 variable "GitHubRepo" {
-  default = "terraform-class-files"
+  default = "ziyotek-pipeline"
   type    = "string"
 }
 
