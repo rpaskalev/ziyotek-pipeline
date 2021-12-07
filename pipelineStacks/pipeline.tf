@@ -4,7 +4,7 @@ variable "buildspecpath" {
 }
 
 variable "GitHubBranch" {
-  default = "feature/modules"
+  default = "main"
   type    = "string"
 }
 
