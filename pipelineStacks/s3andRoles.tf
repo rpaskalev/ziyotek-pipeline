@@ -123,5 +123,4 @@ resource "aws_iam_role_policy_attachment" "test-attach" {
 
 variable "aritifact_bucket_name" {
   description = "the name you need to give to an artifact bucket"
-  default = "rady-bucket-pipeline-artifacts"
 }
