@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "example" {
-  bucket = "rady-bucket-pipeline-artifacts"
+  bucket = var.aritifact_bucket_name
   acl    = "private"
       provisioner "local-exec" {
     when    = destroy
@@ -119,4 +119,9 @@ EOF
 resource "aws_iam_role_policy_attachment" "test-attach" {
   role       = aws_iam_role.codepipeline_role.name
   policy_arn = aws_iam_policy.codepipeline_policy.arn
+}
+
+variable "aritifact_bucket_name" {
+  description = "the name you need to give to an artifact bucket"
+  default = "rady-bucket-pipeline-artifacts"
 }
