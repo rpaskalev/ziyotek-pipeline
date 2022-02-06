@@ -23,7 +23,7 @@ resource "aws_iam_role" "deploy_role" {
 EOF
 }
 
-resource "aws_iam_role_policy" "deploy_policy" {
+resource "aws_iam_role_policy" "codedeploy_policy" {
   name = "deploy_policy"
   role = aws_iam_role.deploy_role.id
 
