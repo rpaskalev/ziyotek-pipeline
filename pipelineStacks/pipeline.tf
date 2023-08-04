@@ -5,21 +5,21 @@ variable "buildspecpath" {
 
 variable "GitHubBranch" {
   default = "main"
-  type    = "string"
+  type    = string
 }
 
 variable "GitHubOwner" {
   default = "rpaskalev"
-  type    = "string"
+  type    = string
 }
 
 variable "GitHubRepo" {
   default = "ziyotek-pipeline"
-  type    = "string"
+  type    = string
 }
 
 variable "GitHubToken" {
-  type = "string"
+  type = string
   default = null
 }
 

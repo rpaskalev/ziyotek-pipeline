@@ -15,7 +15,7 @@ resource "aws_instance" "web" {
   # Security group must be declared in the network_interface_id block if we are adding that parameter.
   vpc_security_group_ids = var.vpc_security_group
     
-  tags = {
-    Name = "SampleApp"    
-  }
+    tags = {
+      Name = "SampleApp"    
+    }
 }

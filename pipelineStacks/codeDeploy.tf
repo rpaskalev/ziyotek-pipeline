@@ -47,10 +47,6 @@ resource "aws_codedeploy_app" "example" {
   name = "MyDemoApplication"
 }
 
-resource "aws_sns_topic" "example" {
-  name = "example-topic"
-}
-
 resource "aws_codedeploy_deployment_group" "example" {
   app_name              = aws_codedeploy_app.example.name
   deployment_group_name = "MyDemoDeploymentGroup"
@@ -70,3 +66,10 @@ resource "aws_codedeploy_deployment_group" "example" {
     value = "SampleApp"
   }
 }
+
+
+
+
+# resource "aws_sns_topic" "example" {
+#   name = "example-topic"
+# }
