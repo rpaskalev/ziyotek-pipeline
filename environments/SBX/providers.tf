@@ -3,9 +3,11 @@ provider "aws" {
 }
 
 terraform {
-  backend "s3" {
-    bucket = "rady-bucket-1-0-0"
-    key    = "dags/myfile"
-    region = "us-east-1"
-  }
+backend "s3" {
+  bucket  = "ziyotek-terraform-state-rady-host"
+  key     = "ec2-examle/devops/terraform.tfstate"
+  region  = "us-east-1"
+  encrypt = true
+  dynamodb_table = "terraform-lock"
+}
 }
