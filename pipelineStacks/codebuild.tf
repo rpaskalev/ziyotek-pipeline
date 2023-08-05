@@ -1,6 +1,3 @@
-
-
-
 resource "aws_iam_role" "code_build" {
   name = "code_build_role"
 
