@@ -19,7 +19,7 @@ phases:
       - terraform destroy -auto-approve
   post_build:
     commands:
-      - echo "terraform destroy completed on `date`"
+      - echo "terraform apply completed on `date`"
 artifacts:
   files:
    - '**/*'
